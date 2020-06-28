@@ -17,35 +17,34 @@ class MAIN
                        converter = new Thermometer();
                        newtemp= converter.convert(temp);
                       System.out.println("Temperature in Farenheit scale: "+newtemp);
+                      System.out.println("Is temperature "+temp+"deg Celcius is hot: "+((Thermometer)converter).isHot(temp));
                       break;
             case 2 :  System.out.println("Enter a temperature value in Celcius scale :");
                        temp = input.nextDouble();
                       converter = new Thermocouple();
                        newtemp= converter.convert(temp);
                       System.out.println("Temperature in Kelvin scale: "+newtemp);
+                      System.out.println("Is temperature "+temp+"deg Celcius is hot: "+((Thermocouple)converter).isHot(temp));
                       break;
             case 3 :  System.out.println("Enter a speed value in kms scale :");
                        speed = input.nextDouble();
                        converter = new PilotTube();
                       newspeed= converter.convert(speed);
                       System.out.println("Speed in mach scale: "+newspeed);
+                      System.out.println("Is "+speed+" kms is fast :"+((PilotTube)converter).isFast(speed));
                       break;
-            case 4 :  System.out.println("Enter a speed value in kms scale :");
+            case 4 :  System.out.println("Enter a speed value in kmh scale :");
                       speed = input.nextDouble();
                        converter = new ShaftLog();
                        newspeed= converter.convert(speed);
                       System.out.println("Speed in mph scale: "+newspeed);
+                      System.out.println("Is "+speed+" kmh is fast :"+((ShaftLog)converter).isFast(speed));
                       break;
             default :
                         System.out.println(" Please choose with proper choice.");
         }
 
-        //Typecasting of Converter's instance coverter 
-        converter = new Thermocouple();
-        System.out.println(((Thermocouple)converter).isHot(78.68));
-
-        converter= new ShaftLog();
-        System.out.println(((ShaftLog)converter).isFast(23.56));
+       
     }
 }
 
@@ -120,7 +119,7 @@ class PilotTube extends SpeedConverter
    protected  boolean isFast(double S)
     {
        double speed= S;
-       if(speed>40)
+       if(speed>10)
        {
            return true;
         }
