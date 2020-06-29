@@ -28,10 +28,10 @@ class MAIN
                       break;
             case 3 :  System.out.println("Enter a speed value in kms scale :");
                        speed = input.nextDouble();
-                       converter = new PilotTube();
+                       converter = new PitotTube();
                       newspeed= converter.convert(speed);
                       System.out.println("Speed in mach scale: "+newspeed);
-                      System.out.println("Is "+speed+" kms is fast :"+((PilotTube)converter).isFast(speed));
+                      System.out.println("Is "+speed+" kms is fast :"+((PitotTube)converter).isFast(speed));
                       break;
             case 4 :  System.out.println("Enter a speed value in kmh scale :");
                       speed = input.nextDouble();
@@ -77,14 +77,7 @@ class Thermometer extends TemperatureConverter
 
    protected  boolean isHot(double T)
    {
-      double temp= T;
-      if(temp>30)
-      {
-          return true;
-       }
-      else{
-          return false;
-      }
+     return(T>30); 
    }
 }
 
@@ -97,18 +90,11 @@ class Thermocouple extends TemperatureConverter
    } 
    protected  boolean isHot(double T)
    {
-      double temp= T;
-      if(temp>30)
-      {
-          return true;
-       }
-      else{
-          return false;
-      }
-   }
+     return(T>30); 
+    }
 }
 
-class PilotTube extends SpeedConverter
+class PitotTube extends SpeedConverter
 {
   public  Object convert(Object obj)
    {
@@ -118,14 +104,7 @@ class PilotTube extends SpeedConverter
 
    protected  boolean isFast(double S)
     {
-       double speed= S;
-       if(speed>10)
-       {
-           return true;
-        }
-       else{
-           return false;
-       }
+       return (S>10);
     }
 }
 
@@ -138,14 +117,7 @@ class ShaftLog extends SpeedConverter
    }
    protected  boolean isFast(double S)
     {
-       double speed= S;
-       if(speed>40)
-       {
-           return true;
-        }
-       else{
-           return false;
-       }
+      return(S>40);
     }
 }
 
